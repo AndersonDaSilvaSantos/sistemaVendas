@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dev.sistemaVendas.modelos.Funcionario;
+import com.dev.sistemaVendas.repositorios.CidadeRepositorio;
 import com.dev.sistemaVendas.repositorios.FuncionarioRepositorio;
 
 @Controller
@@ -20,11 +21,15 @@ public class FuncionarioControle {
 
 	@Autowired
 	private FuncionarioRepositorio funcionarioRepositorio;
+	
+	@Autowired
+	private CidadeRepositorio cidadeRepositorio;
 
 	@GetMapping("/administrativo/funcionarios/cadastrar")
 	public ModelAndView cadastrar(Funcionario funcionario) {
 		ModelAndView mv = new ModelAndView("administrativo/funcionarios/cadastro");
 		mv.addObject("funcionario", funcionario);
+		mv.addObject("listaCidades" ,cidadeRepositorio.findAll());
 		return mv;
 	}
 
