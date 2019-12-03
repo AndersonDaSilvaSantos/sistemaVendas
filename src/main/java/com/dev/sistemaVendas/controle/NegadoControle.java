@@ -22,13 +22,20 @@ import com.dev.sistemaVendas.repositorios.FuncionarioRepositorio;
 public class NegadoControle {
 	
 
-	@GetMapping("/negado")
-	public ModelAndView cadastrar(Cidade cidade) {
-		ModelAndView mv =  new ModelAndView("/negado");
+	@GetMapping("/negadoAdministrativo")
+	public ModelAndView negadoAdministrativo() {
+		ModelAndView mv =  new ModelAndView("/negadoAdministrativo");
 		
 		return mv;
 	}
 	
+	
+	@GetMapping("/negadoCliente")
+	public ModelAndView negadoCliente() {
+		ModelAndView mv =  new ModelAndView("/negadoCliente");
+		
+		return mv;
+	}
 	
 
 }
